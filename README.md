@@ -1,10 +1,22 @@
-# PMS export reconciliation demonstration
+> **Proprietary - All Rights Reserved.** Licensed to Sandeep Grover. No reuse, copying, modification, or distribution without prior written permission. See LICENSE.
 
-Proprietary software, copyright 2026 Sandeep Grover. All rights reserved. Public visibility does not grant reuse rights; see LICENSE and NOTICE.
+# PMS export reconciliation demonstration
 
 This small synthetic demonstration audits a pre-existing export archive. It is **not a Track PMS connector** or proof of access to that system. No client or guest data is included.
 
-Run with Python 3.10+:
+## Architecture
+
+```mermaid
+flowchart LR
+    A[Export batches + manifest] --> B[Hash and record-count checks]
+    B --> C[Source-count reconciliation]
+    C --> D[ID, reference and attachment checks]
+    D --> E[Inventory + exceptions report]
+```
+
+## Run
+
+Python 3.10+, standard library only:
 
 ```sh
 python main.py
